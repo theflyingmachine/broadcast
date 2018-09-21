@@ -7,7 +7,7 @@ $error="";
        if ($passwd == "apple"){
        // echo "<script>alert('Passwd OK')</script>";
         $_SESSION['login'] = true;
-      // header('Location: /broadcast/public/index');
+      // header('Location: /index');
     // return Redirect::route('index');
     
        }else {

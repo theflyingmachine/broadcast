@@ -145,7 +145,7 @@ fieldset {
 </style>
 
 <div class="container">  
-        <form id="contact" action="/broadcast/public/submitresponse" method="post">
+        <form id="contact" action="/submitresponse" method="post">
           <h3>Response</h3>
           <fieldset>
             {{-- <input placeholder="Your name" type="text" tabindex="1" required autofocus>

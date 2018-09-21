@@ -20,7 +20,7 @@ body, html {
         {{-- Status is pending - Accept responce --}}
         @include('inc.newresponse')
             {{-- <div class="well">
-                <h3> <a href=/broadcast/public/response/>{{$token->status}}</h3>
+                <h3> <a href=/response/>{{$token->status}}</h3>
             </div> --}}
         @else
         {{-- Status is not pending, Show thankyou --}}

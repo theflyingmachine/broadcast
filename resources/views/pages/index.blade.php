@@ -8,7 +8,7 @@
 @if(count($allbroadcasts) > 0)
     @foreach($allbroadcasts as $broadcast)
     <div class="well">
-        <h3> <a href=/broadcast/public/viewresponse/{{$broadcast->b_id}}>{{$broadcast->b_id}}</h3>
+        <h3> <a href=/viewresponse/{{$broadcast->b_id}}>{{$broadcast->b_id}}</h3>
     </div>
     @endforeach
 @else

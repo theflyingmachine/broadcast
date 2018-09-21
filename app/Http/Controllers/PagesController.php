@@ -38,6 +38,50 @@ class PagesController extends Controller
         return redirect('login');  
     }
 
+
+    public function dataapi(Request $request){
+        if($request->session()->get('login')){
+        $allmembers = Member::all();
+        $count=1;
+        $result = '{"data":[';
+            foreach ($allmembers as $members){
+            if ($count>1)
+            $result .= ',';
+            $result .= '["'.$members->id. '","'.$members->name.'","'.$members->gender.'","'.$members->mobile.'","'.$members->email.'"]';
+            $count+=1;
+            }
+            $result .= ']}';
+            
+        return $result;
+        
+        }else
+        return redirect('login');  
+    }
+
+
+
+
+    public function broadcaststaging(Request $request){
+        if($request->session()->get('login')){
+        $ids = $request->input('id');
+        // $users="";
+        // foreach ($ids as $id){
+        //     $users[] = Member::select('*')
+        //     ->where('members.id','=', $id)
+        //     ->select('members.id','members.name')
+        //     ->get();
+        // }
+        $users = Member::whereIn('id', $ids)->get();
+        
+        // $users = json_encode($users);
+        // return view('pages.broadcastlaunchpad',compact('$users'));;
+        return view('pages.broadcastlaunchpad')->with('allbroadcasts',$users);;
+         }else
+        return redirect('login'); 
+    }
+
+
+
     public function login(Request $request){
         $name = $request->input('p');
         if ($name=="apple"){

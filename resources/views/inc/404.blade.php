@@ -146,7 +146,7 @@ a::after {
   <p class="output">The page you are looking for might have been removed, had its name changed or is temporarily unavailable</ü>
   <p class="output">If you are hacker, Flying down a tunnel of 1's and 0's is not how hacking is really done</ü>
   <p class="output">If you are just hanging around, beware zombies ahead</ü>
-  <p class="output">If you are lost, Please try <a href="/broadcast/public/">HOME</a> or <a href="http://cyberboy.in">CYBERBOY</a>. Internet is not a good place to get lost</p>
+  <p class="output">If you are lost, Please try <a href="/">HOME</a> or <a href="http://cyberboy.in">CYBERBOY</a>. Internet is not a good place to get lost</p>
   <p class="output">Good luck</p>
 </div>
 

@@ -22,7 +22,8 @@ Route::get('/newbroadcast', 'PagesController@newbroadcast');
 Route::get('/logout', 'PagesController@logout');
 Route::post('/login', 'PagesController@login');
 Route::get('/login', 'PagesController@login');
-
+Route::get('/dataapi', 'PagesController@dataapi');
+Route::post('/broadcaststaging', 'PagesController@broadcaststaging');
 
 
 Route::get('/viewresponse/{b_id}', 'ResponseController@showresponse');
@@ -31,6 +32,7 @@ Route::get('/response/{token}/{qresponse}', 'ResponseController@checktokenqrespo
 Route::post('/response', 'ResponseController@submitresponse');
 Route::get('/response', 'ResponseController@invalid');
 Route::post('/submitresponse', 'ResponseController@submitresponse');
+
 
 
 //redirect all invalid route to 404
