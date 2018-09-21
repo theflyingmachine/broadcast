@@ -54,7 +54,7 @@
     <script>
 $(document).ready(function() {
    var table = $('#example').DataTable({
-      'ajax': 'http://broadcast.code/dataapi',
+      'ajax': '/dataapi',
       'columnDefs': [
          {
             'targets': 0,
