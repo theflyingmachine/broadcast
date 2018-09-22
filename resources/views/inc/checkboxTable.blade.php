@@ -8,8 +8,8 @@
 <div class="container-fluid">
         @if(count($allmembers) > 0)
     
-<form id="frm-example" action="/broadcaststaging" method="POST">
-    {{ csrf_field() }}
+{{-- <form id="frm-example" action="/broadcaststaging" method="POST">
+    {{ csrf_field() }} --}}
 <table id="example" class="display" cellspacing="0" width="100%">
    <thead>
       <tr>
@@ -24,18 +24,18 @@
       <tr>
          <th></th>
          <th>Name</th>
-         <th>Position</th>
-         <th>Office</th>
-         <th>Age</th>
+         <th>Gender</th>
+         <th>Mobile</th>
+         <th>Email</th>
       </tr>
    </tfoot>
 </table>
 
-<hr>
+{{-- <hr>
 
 <p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
 
-<p><button type="submit">Submit</button></p>
+<p><button type="submit">Submit</button></p> --}}
 
 {{-- <p><b>Selected rows data:</b></p>
 <pre id="example-console-rows"></pre>
@@ -43,7 +43,7 @@
 <p><b>Form data as submitted to the server:</b></p>
 <pre id="example-console-form"></pre> --}}
 
-</form>
+{{-- </form> --}}
 
 
         @else

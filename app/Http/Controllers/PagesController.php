@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Broadcast;
 use App\Member;
-
+use File;
 
 class PagesController extends Controller
 {
@@ -63,7 +63,17 @@ class PagesController extends Controller
 
     public function broadcaststaging(Request $request){
         if($request->session()->get('login')){
+        $request->broadcastTemplate->store('broadcastTemplate');
         $ids = $request->input('id');
+        //get has file name
+        $hashFilename = $request->broadcastTemplate->hashName();
+        $openFilename = "app\broadcastTemplate\\";
+        $openFilename .= $hashFilename;
+        //read file from disk
+        $templateContent  = File::get(storage_path($openFilename));
+        
+
+
         // $users="";
         // foreach ($ids as $id){
         //     $users[] = Member::select('*')
@@ -75,6 +85,30 @@ class PagesController extends Controller
         
         // $users = json_encode($users);
         // return view('pages.broadcastlaunchpad',compact('$users'));;
+
+        // DO all the personalzation
+        foreach ($users as $user){
+        $personalizedTemplate = $templateContent;
+        $token = $this->generateRandomString();
+        //name
+        $personalizedTemplate = str_replace("Birthday_boygirl",$user->name, $personalizedTemplate);
+        //email
+        $personalizedTemplate = str_replace("Birthday_boygirl",$user->email, $personalizedTemplate);
+        //mobile
+        $personalizedTemplate = str_replace("Birthday_boygirl",$user->mobile, $personalizedTemplate);
+        //token
+        $personalizedTemplate = str_replace("Birthday_boygirl",$token, $personalizedTemplate);
+        $user['token'] =  $token;
+        $user['template'] = $personalizedTemplate;
+
+        //generate view for html
+        $personalizedTemplate = str_replace("&","&amp;", $personalizedTemplate);
+        $personalizedTemplate = str_replace("<","&lt;", $personalizedTemplate);
+        $personalizedTemplate = str_replace(">","&gt;", $personalizedTemplate);
+        $user['viewtemplate'] = $personalizedTemplate;
+        }
+        
+        
         return view('pages.broadcastlaunchpad')->with('allbroadcasts',$users);;
          }else
         return redirect('login'); 
@@ -101,4 +135,19 @@ class PagesController extends Controller
         // return redirect()->route('login');
         // return view('pages.login');
     }
+
+   // Funcutions which will be used by this script
+   public function generateRandomString($length = 32) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+	}
+	
+ 
+
+
 }
