@@ -38,13 +38,13 @@ class BroadcastController extends Controller
         $personalizedTemplate = $templateContent;
         $token = $this->generateRandomString();
         //name
-        $personalizedTemplate = str_replace("myName",$user->name, $personalizedTemplate);
+        $personalizedTemplate = str_replace("[myName]",$user->name, $personalizedTemplate);
         //email
-        $personalizedTemplate = str_replace("myEmail",$user->email, $personalizedTemplate);
+        $personalizedTemplate = str_replace("[myEmail]",$user->email, $personalizedTemplate);
         //mobile
-        $personalizedTemplate = str_replace("myNumber",$user->mobile, $personalizedTemplate);
+        $personalizedTemplate = str_replace("[myNumber]",$user->mobile, $personalizedTemplate);
         //token
-        $personalizedTemplate = str_replace("myToken",$token, $personalizedTemplate);
+        $personalizedTemplate = str_replace("[myToken]",$token, $personalizedTemplate);
         $user['token'] =  $token;
         $user['template'] = $personalizedTemplate;
         $user['title'] = $title;
