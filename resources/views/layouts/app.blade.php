@@ -6,6 +6,9 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
 
+        {{-- For CSRF protection --}}
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
         {{-- //Css for well --}}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
         <!-- Latest compiled and minified CSS -->
@@ -14,6 +17,34 @@
         <!-- <title>{{config('app.name', 'Broadcast')}}</title> -->
         
         <title>Broadcast</title>
+
+        <style>
+            .card.light-version .file-field input[type=text] {
+              border-bottom: 1px solid #fff; }
+              .card.light-version .file-field input[type=text]::-webkit-input-placeholder {
+                color: #fff;
+                font-weight: 300; }
+              .card.light-version .file-field input[type=text]::-moz-placeholder {
+                color: #fff;
+                font-weight: 300; }
+              .card.light-version .file-field input[type=text]:-ms-input-placeholder {
+                color: #fff;
+                font-weight: 300; }
+              .card.light-version .file-field input[type=text]::placeholder {
+                color: #fff;
+                font-weight: 300; }
+              .card.light-version .file-field input[type=text]:focus:not([readonly]) {
+                -webkit-box-shadow: 0 1px 0 0 #fff;
+                box-shadow: 0 1px 0 0 #fff; }
+              .card.light-version .file-field input[type=text].valid {
+                border-bottom: 1px solid #00c851;
+                -webkit-box-shadow: 0 1px 0 0 #00c851;
+                box-shadow: 0 1px 0 0 #00c851; }
+              .card.light-version .file-field input[type=text]:focus.valid {
+                border-bottom: 1px solid #00c851;
+                -webkit-box-shadow: 0 1px 0 0 #00c851;
+                box-shadow: 0 1px 0 0 #00c851; }
+                </style>
         </head>
     <body>
             @if(session()->has('login'))

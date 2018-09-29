@@ -16,9 +16,9 @@ class CreateBroadcastsTable extends Migration
         Schema::create('broadcasts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('b_id');
-            $table->string('token');
+            $table->string('token')->unique();
             $table->string('email_to');
-            $table->longText('message');
+            $table->longText('message')->nullable();;
             $table->string('status');
             $table->timestamps();
         });

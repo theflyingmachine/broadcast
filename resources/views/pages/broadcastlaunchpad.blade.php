@@ -1,11 +1,10 @@
 @extends('layouts.app')
 @section('content')
+
 <h1>Broadcast Launchpad</h1>
 @if(count($allbroadcasts) > 0)
-{{-- $allbroadcasts = explode( '|', $string ); --}}
-{{-- {{$allbroadcasts}} --}}
-<button type="button" id="button1" class="btn btn-success btn-lg btn-block"> Broadcast </button>
 
+<button type="button" id="button1" class="btn btn-success btn-lg btn-block"> Broadcast </button>
 
           <p>&nbsp;</p>
           <p>&nbsp;</p>
@@ -17,12 +16,25 @@
   
   <iframe id="loadarea" style="display:none;"></iframe><br />
   <script >
+   
 	$("#button1").click(function(){
-		document.getElementById('loadarea').src = 'progressbar.php';
+        document.getElementById("button1").disabled = true;
+        $.ajax({
+    type: "POST",
+    url: '/broadcast',
+    data: { broadcastpermission: "525bc1c0751a58ea8d9ef774a9a59e91", _token: '{{csrf_token()}}' },
+    success: function (data) {
+       console.log(data);
+    },
+    error: function (data, textStatus, errorThrown) {
+        console.log(data);
+
+    },
+});
+		document.getElementById('loadarea').src = 'broadcast';
+		// document.getElementById('loadarea').src = 'progressbar.php';
 	});
-	$("#button2").click(function(){
-		document.getElementById('loadarea').src = '';
-	});
+	
 </script>
 <hr>
 <br>

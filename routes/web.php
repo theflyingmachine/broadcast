@@ -22,8 +22,13 @@ Route::get('/newbroadcast', 'PagesController@newbroadcast');
 Route::get('/logout', 'PagesController@logout');
 Route::post('/login', 'PagesController@login');
 Route::get('/login', 'PagesController@login');
-Route::get('/dataapi', 'PagesController@dataapi');
-Route::post('/broadcaststaging', 'PagesController@broadcaststaging');
+
+
+Route::get('/dataapi', 'BroadcastController@dataapi');
+Route::post('/broadcaststaging', 'BroadcastController@broadcaststaging');
+Route::post('/broadcast', 'BroadcastController@broadcast');
+Route::get('/broadcast', 'BroadcastController@broadcast');
+Route::get('/testdb', 'BroadcastController@testdb');
 
 
 Route::get('/viewresponse/{b_id}', 'ResponseController@showresponse');

@@ -6,7 +6,13 @@ $error="";
        
        if ($passwd == "apple"){
        // echo "<script>alert('Passwd OK')</script>";
-        $_SESSION['login'] = true;
+		$_SESSION['login'] = true;
+		$headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n";
+        $ntxt = "Hello Eric,
+		  
+		  	Login from ".$_SERVER['REMOTE_ADDR'].", is validated at " . date("h:i:sa");
+
+			mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
       // header('Location: /index');
     // return Redirect::route('index');
     

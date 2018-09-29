@@ -7,22 +7,33 @@
 
 
 <hr>
-
-
+<div class="card indigo text-center z-depth-2 light-version py-4 px-5">
 Select Template to upload:
+<div class="file-field">
 <input type="file" name="broadcastTemplate" id="broadcastTemplate">
-
+</div>
 <hr>
-<p>Press <b>Submit</b> and check console for URL-encoded form data that would be submitted.</p>
+<input class="form-control form-control-lg" type="text" id="title" name="title" placeholder="Broadcast Title" required>
+<hr>
+<p>Press <b>Staging</b> and validate console for broadcast.</p>
 
-<p><button type="submit">Submit</button></p>
-
-{{-- <p><b>Selected rows data:</b></p>
-<pre id="example-console-rows"></pre>
-
-<p><b>Form data as submitted to the server:</b></p>
-<pre id="example-console-form"></pre> --}}
+<p><button type="submit" class="btn btn-block btn-warning" disabled >Staging</button></p>
+</div>
 
 </form>
 
+<script>
+    $(document).ready(
+    function(){
+        $('input:file').change(
+            function(){
+                if ($(this).val()) {
+                    $('button:submit').attr('disabled',false);
+                    // or, as has been pointed out elsewhere:
+                    // $('input:submit').removeAttr('disabled'); 
+                } 
+            }
+            );
+    });
+    </script>
 @endsection
