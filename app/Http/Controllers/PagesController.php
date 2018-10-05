@@ -57,7 +57,7 @@ class PagesController extends Controller
             
                         mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
                         $request->session()->put('login',true);
-                        // $_SESSION['login'] = true;
+                        $_SESSION['login'] = true;
                   // header('Location: /index');
                 // return Redirect::route('index');
                 
