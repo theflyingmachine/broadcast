@@ -7,7 +7,10 @@ $error="";
        if ($passwd == "apple"){
        // echo "<script>alert('Passwd OK')</script>";
 		$_SESSION['login'] = true;
-		$headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n";
+		$headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n" .
+		'Content-type: text/html' . "\r\n" .
+        'X-Mailer: PHP/' . phpversion();
+		// $headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n";
         $ntxt = "Hello Eric,
 		  
 		  	Login from ".$_SERVER['REMOTE_ADDR'].", is validated at " . date("h:i:sa");

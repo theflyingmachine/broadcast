@@ -35,8 +35,8 @@ class BroadcastController extends Controller
         $users = Member::whereIn('id', $ids)->get();
         // DO all the personalzation
         foreach ($users as $user){
-		$personalizedTemplate = $templateContent;
-		$Name = ucwords(strtolower($user->name));
+        $personalizedTemplate = $templateContent;
+        $Name = ucwords(strtolower($user->name));
         $token = $this->generateRandomString();
         //name
         $personalizedTemplate = str_replace("[myName]",$Name, $personalizedTemplate);
