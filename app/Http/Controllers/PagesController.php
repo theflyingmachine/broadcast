@@ -41,37 +41,36 @@ class PagesController extends Controller
 
 
     public function login(Request $request){
+        $mailcount = 1;
         if($request->session()->get('login'))
         return redirect('index');
         $name = $request->input('p');
         // if ($name=="apple"){
             if ($name == env("LOGIN_CRED", "abcxyz")){
+                $request->session()->put('login',true);
+               
                 //    if ($passwd == "apple"){
                    // echo "<script>alert('Passwd OK')</script>";
                     
                     // $headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n" .
                     // 'Content-type: text/html' . "\r\n" .
                     // 'X-Mailer: PHP/' . phpversion();
+                    if(!($request->session()->get('loginalert'))){
                     $headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n";
                     $ntxt = "Hello Eric,
                       
                           Login from ".$_SERVER['REMOTE_ADDR'].", is validated at " . date("h:i:sa");
-            
-                        mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
-                        $request->session()->put('login',true);
-                        $_SESSION['login'] = true;
-                        $_SESSION['loginalert'] = true;
-                  // header('Location: /index');
-                // return Redirect::route('index');
-                
-                     // $request->session()->put('login',true);
-        // session::put('login', true);
+                        // if ($mailcount == 1)
+                        mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);
+                        $request->session()->put('loginalert',true);
+                    }
         return redirect('index');
         }else
         return view('pages.login');
     }
 
     public function logout(Request $request){
+        $request->session()->put('loginalert',false);
         $request->session()->flush();
         return redirect('/login');;
     }

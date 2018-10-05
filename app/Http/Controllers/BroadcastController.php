@@ -26,7 +26,7 @@ class BroadcastController extends Controller
         
         //get has file name
         $hashFilename = $request->broadcastTemplate->hashName();
-        $openFilename = "app/broadcastTemplate/";
+        $openFilename = "app\broadcastTemplate\\";
         $openFilename .= $hashFilename;
         //read file from disk
         $templateContent  = File::get(storage_path($openFilename));
