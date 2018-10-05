@@ -41,6 +41,8 @@ class PagesController extends Controller
 
 
     public function login(Request $request){
+        if($request->session()->get('login'))
+        return redirect('index');
         $name = $request->input('p');
         // if ($name=="apple"){
             if ($name == env("LOGIN_CRED", "abcxyz")){
@@ -58,6 +60,7 @@ class PagesController extends Controller
                         mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
                         $request->session()->put('login',true);
                         $_SESSION['login'] = true;
+                        $_SESSION['loginalert'] = true;
                   // header('Location: /index');
                 // return Redirect::route('index');
                 
