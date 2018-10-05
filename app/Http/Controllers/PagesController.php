@@ -42,8 +42,26 @@ class PagesController extends Controller
 
     public function login(Request $request){
         $name = $request->input('p');
-        if ($name=="apple"){
-        $request->session()->put('login',true);
+        // if ($name=="apple"){
+            if ($name == env("LOGIN_CRED", "abcxyz")){
+                //    if ($passwd == "apple"){
+                   // echo "<script>alert('Passwd OK')</script>";
+                    
+                    $headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n" .
+                    'Content-type: text/html' . "\r\n" .
+                    'X-Mailer: PHP/' . phpversion();
+                    // $headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n";
+                    $ntxt = "Hello Eric,
+                      
+                          Login from ".$_SERVER['REMOTE_ADDR'].", is validated at " . date("h:i:sa");
+            
+                        mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
+                        $request->session()->put('login',true);
+                        // $_SESSION['login'] = true;
+                  // header('Location: /index');
+                // return Redirect::route('index');
+                
+                     // $request->session()->put('login',true);
         // session::put('login', true);
         return redirect('index');
         }else

@@ -4,9 +4,10 @@ $error="";
       // username and password sent from form
 	   $passwd  =  $_POST['p'];
        
-       if ($passwd == "apple"){
+       if ($passwd == env("LOGIN_CRED", "abcxyz")){
+    //    if ($passwd == "apple"){
        // echo "<script>alert('Passwd OK')</script>";
-		$_SESSION['login'] = true;
+		
 		$headers = "From: Broadcast <cyberboy.inc@gmail.com>" . "\r\n" .
 		'Content-type: text/html' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
@@ -16,6 +17,7 @@ $error="";
 		  	Login from ".$_SERVER['REMOTE_ADDR'].", is validated at " . date("h:i:sa");
 
 			mail("ericabraham.ea@gmail.com","Login Alert",$ntxt,$headers);  
+			$_SESSION['login'] = true;
       // header('Location: /index');
     // return Redirect::route('index');
     
