@@ -5,7 +5,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css" >
-
+        {{-- application icon --}}
+        <link rel="shortcut icon" href="{{ asset('image/broadicon.png') }}">
         {{-- For CSRF protection --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -51,8 +52,11 @@
             @include('inc.navbar')
             @endif
         <br><br><br><br>
-            <div class="container"
+            <div class="container">
                 @yield('content')
             </div>
+            @if(session()->has('login'))
+            @include('inc.footer')
+            @endif
     </body>
 </html>

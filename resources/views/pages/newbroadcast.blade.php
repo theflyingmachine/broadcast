@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Start New broadcast </h1> </br></br></br>
+<h1>Start New broadcast </h1> <br><br><br>
 <form id="frm-example" action="/broadcaststaging" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
 @include('inc.checkboxTable')
@@ -27,11 +27,20 @@ Select Template to upload:
     function(){
         $('input:file').change(
             function(){
+                var fileName = document.getElementById("broadcastTemplate").value,
+                idxDot = fileName.lastIndexOf(".") + 1,
+                extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+            if (extFile=="htm" || extFile=="html"){
+                //TO DO
                 if ($(this).val()) {
                     $('button:submit').attr('disabled',false);
                     // or, as has been pointed out elsewhere:
                     // $('input:submit').removeAttr('disabled'); 
                 } 
+            }else{
+                alert("Only htm/html files are allowed!");
+            }
+             
             }
             );
     });

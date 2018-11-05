@@ -8,13 +8,13 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
                     <a class="nav-link" href="/newbroadcast">New Broadcast <span class="sr-only">(current)</span></a>
-                  </li>
+                  </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
               <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
-            </li>
+            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             {{-- <li class="nav-item">
               <a class="nav-link disabled" href="#">Disabled</a>
             </li> --}}
