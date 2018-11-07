@@ -5,6 +5,7 @@
 <p>Broadcast has ablity to customise bellow mentioned four fields, please make sure the fields which needs to be customised are in respective format in template.
 <br>
 <br>Name - [myName]
+<br>First Name - [myfName]
 <br>Email - [myEmail]
 <br>Mobile Number - [myNumber]
 <br>Token - [myToken]
