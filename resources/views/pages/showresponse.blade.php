@@ -1,8 +1,9 @@
 @extends('layouts.app')
-
-
 @section('content')
-<h1>Report for broadcast_id </h1>
+<h1>Report for  {{ Session::get('bidtoken') }} </h1>
+@if(Session::has('message'))
+<p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+@endif
 <script>
         $(document).ready(function(){
        var table = $('#example').DataTable({
@@ -38,9 +39,10 @@
                  <th></th>        
                  <th>Name</th>
                  <th>Gender</th>
-                 <th>Email</th>
+                 <th>Sent to</th>
                  <th>Response</th>
                  <th>Status</th>
+                 <th>Content</th>
                  <th>Last Updated</th>
                 </tr>
            </thead>
@@ -49,9 +51,10 @@
                     <td></td>
                     <td>{{$members->name}}</td>
                     <td>{{$members->gender}}</td>
-                    <td>{{$members->email_to}}</td>
+                    <td>{{$members->send_to}}</td>
                     <td>{{$members->message}}</td>
                     <td>{{$members->status}}</td>
+                    <td>{{$members->content}}</td>
                     <td>{{$members->updated_at}}</td>
                     </tr>
         
@@ -61,9 +64,10 @@
                  <th></th>      
                  <th>Name</th>
                  <th>Gender</th>
-                 <th>Email</th>
+                 <th>Sent to</th>
                  <th>Response</th>
                  <th>Status</th>
+                 <th>Content</th>
                  <th>Last Updated</th>
                 </tr>
            </tfoot>

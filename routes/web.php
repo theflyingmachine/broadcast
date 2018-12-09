@@ -19,6 +19,7 @@ Route::post('/index', 'PagesController@index');
 
 Route::get('/about', 'PagesController@about');
 Route::get('/newbroadcast', 'PagesController@newbroadcast');
+Route::get('/smsnewbroadcast', 'PagesController@smsbroadcast');
 Route::get('/logout', 'PagesController@logout');
 Route::post('/login', 'PagesController@login');
 Route::get('/login', 'PagesController@login');
@@ -29,6 +30,10 @@ Route::post('/broadcaststaging', 'BroadcastController@broadcaststaging');
 Route::post('/broadcast', 'BroadcastController@broadcast');
 Route::get('/broadcast', 'BroadcastController@broadcast');
 Route::get('/testdb', 'BroadcastController@testdb');
+Route::post('/smsbroadcaststaging', 'BroadcastController@smsbroadcaststaging');
+Route::post('/smsbroadcast', 'BroadcastController@smsbroadcast');
+Route::get('/smsbroadcast', 'BroadcastController@smsbroadcast');
+
 
 
 Route::get('/viewresponse/{b_id}', 'ResponseController@showresponse');

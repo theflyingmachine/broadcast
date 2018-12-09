@@ -10,7 +10,10 @@
               <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
-                    <a class="nav-link" href="/newbroadcast">New Broadcast <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/newbroadcast">Email Broadcast <span class="sr-only">(current)</span></a>
+                  </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <li class="nav-item">
+                    <a class="nav-link" href="/smsnewbroadcast">SMS Broadcast <span class="sr-only">(current)</span></a>
                   </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <li class="nav-item">
               <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>

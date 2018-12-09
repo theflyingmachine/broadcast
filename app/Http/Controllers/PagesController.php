@@ -39,6 +39,15 @@ class PagesController extends Controller
     }
 
 
+    public function smsbroadcast(Request $request){
+        if($request->session()->get('login')){
+        $allmembers = Member::all();
+        return view('pages.smsbroadcast')->with('allmembers',$allmembers);;
+        }else
+        return redirect('login');  
+    }
+
+
 
     public function login(Request $request){
         $mailcount = 1;

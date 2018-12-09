@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<h1>Start New broadcast </h1> <br><br><br>
+<h1>Start New Email broadcast </h1> <br><br><br>
 <form id="frm-example" action="/broadcaststaging" method="POST" enctype="multipart/form-data">
     {{ csrf_field() }}
 @include('inc.checkboxTable')

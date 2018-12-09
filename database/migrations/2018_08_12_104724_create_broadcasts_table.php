@@ -17,9 +17,10 @@ class CreateBroadcastsTable extends Migration
             $table->increments('id');
             $table->string('b_id');
             $table->string('token')->unique();
-            $table->string('email_to');
-            $table->longText('message')->nullable();;
+            $table->string('send_to');
+            $table->longText('message')->nullable();
             $table->string('status');
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
     }

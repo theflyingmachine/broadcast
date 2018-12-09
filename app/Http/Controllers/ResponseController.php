@@ -86,16 +86,24 @@ class ResponseController extends Controller
 
 
     public function showresponse($b_id){
-      // $broadcast_subject = Broadcast::where('b_id', $b_id)->distinct()->get();  
+      // $broadcast_subject = Broadcast::where('b_id', $b_id)->distinct()->get();
+      if (strpos($b_id, '- SMS -') == true) {
+        $mode = "members.mobile";
+    }else{
+        $mode = "members.email";
+    }
+      
       $broadcast_subject = Broadcast::select('*')
-            ->join('members', 'broadcasts.email_to', '=', 'members.email')
+            ->join('members', 'broadcasts.send_to', '=', "$mode")
             ->where('broadcasts.b_id','=', $b_id)
-            ->select('members.name','members.gender','broadcasts.email_to','broadcasts.message','broadcasts.status', 'broadcasts.updated_at')
+            ->select('members.name','members.gender','broadcasts.send_to','broadcasts.message','broadcasts.status','broadcasts.content', 'broadcasts.updated_at')
             ->get(); 
       //return $broadcast_subject;
        if(count($broadcast_subject) > 0){
             //send to result page
-            Session::put('token', $b_id);
+            Session::put('bidtoken', $b_id);
+            //Session::flash('message', 'This is a message!'); 
+            //Session::flash('alert-class', 'alert-danger'); 
             return view('pages.showresponse')->with('broadcast_subject',$broadcast_subject);
             }else{
           //send to 404
