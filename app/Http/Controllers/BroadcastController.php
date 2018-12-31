@@ -26,7 +26,7 @@ class BroadcastController extends Controller
         
         //get has file name
         $hashFilename = $request->broadcastTemplate->hashName();
-        $openFilename = "app/broadcastTemplate//";
+        $openFilename = "app/broadcastTemplate/";
         $openFilename .= $hashFilename;
         //read file from disk
         $templateContent  = File::get(storage_path($openFilename));
@@ -94,7 +94,7 @@ class BroadcastController extends Controller
                 $request->session()->put('progress',$i);
                 
                 
-                sleep(1); // Here call your time taking function like sending bulk sms etc.
+               // sleep(1); // Here call your time taking function like sending bulk sms etc.
                 $broadcast = new Broadcast;
                 //Extract Variables
                 $sub = $ids[$i]['title'];
@@ -112,7 +112,7 @@ class BroadcastController extends Controller
                 // $broadcast->content = "It saew";
                 $broadcast->content = $templatefilename;
                 $broadcast->save();
-                sleep(1);
+               // sleep(1);
             //Shoot Email
 		$headers = "From: Eric Abraham <cyberboy.inc@gmail.com>" . "\r\n" .
 		'Reply-To: ericabraham.ea@gmail.com' . "\r\n" .
@@ -248,7 +248,7 @@ class BroadcastController extends Controller
                 $request->session()->put('progress',$i);
                 
                 
-                sleep(1); // Here call your time taking function like sending bulk sms etc.
+              //  sleep(1); // Here call your time taking function like sending bulk sms etc.
                 $broadcast = new Broadcast;
                 //Extract Variables
                 $sub = $ids[$i]['title'];
@@ -265,7 +265,7 @@ class BroadcastController extends Controller
                 $broadcast->status = "pending";
                 $broadcast->content = $msg;
                 $broadcast->save();
-                sleep(1);
+                //sleep(1);
             //Shoot SMS
         
             $url = 'https://cyberboy.in/sms/smsapi.php';
@@ -279,7 +279,7 @@ curl_setopt( $ch, CURLOPT_HEADER, 0);
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
 $response = curl_exec( $ch );
-sleep(1);
+//sleep(1);
                 }
                 
                 

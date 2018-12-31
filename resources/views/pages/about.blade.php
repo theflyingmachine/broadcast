@@ -9,6 +9,12 @@
 <br>Email - [myEmail]
 <br>Mobile Number - [myNumber]
 <br>Token - [myToken]
+<br>
+<br>
+<br>
+<br>
+Release Version 1.4 - 31 Dec 18
+
 </p></h3>
 
 {{-- @if(Session::has('login'))
