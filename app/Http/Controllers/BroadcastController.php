@@ -95,7 +95,7 @@ class BroadcastController extends Controller
                 
                 
                // sleep(1); // Here call your time taking function like sending bulk sms etc.
-               usleep( 250 * 1000 );
+               sleep(1);
                 $broadcast = new Broadcast;
                 //Extract Variables
                 $sub = $ids[$i]['title'];
@@ -113,8 +113,7 @@ class BroadcastController extends Controller
                 // $broadcast->content = "It saew";
                 $broadcast->content = $templatefilename;
                 $broadcast->save();
-               // sleep(1);
-               usleep( 250 * 1000 );
+                sleep(2);
             //Shoot Email
 		$headers = "From: Eric Abraham <cyberboy.inc@gmail.com>" . "\r\n" .
 		'Reply-To: ericabraham.ea@gmail.com' . "\r\n" .
@@ -122,7 +121,7 @@ class BroadcastController extends Controller
         'X-Mailer: PHP/' . phpversion();
        
         mail($toemail,$sub,$msg,$headers);
-        usleep( 250 * 1000 );
+        sleep(2);
                 }
                 
                 
@@ -252,7 +251,7 @@ class BroadcastController extends Controller
                 
                 
               //  sleep(1); // Here call your time taking function like sending bulk sms etc.
-              usleep( 250 * 1000 );
+              sleep(1);
                 $broadcast = new Broadcast;
                 //Extract Variables
                 $sub = $ids[$i]['title'];
@@ -270,7 +269,7 @@ class BroadcastController extends Controller
                 $broadcast->content = $msg;
                 $broadcast->save();
                 //sleep(1);
-                usleep( 250 * 1000 );
+                sleep(2);
             //Shoot SMS
         
             $url = 'https://cyberboy.in/sms/smsapi.php';
@@ -285,7 +284,7 @@ curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
 $response = curl_exec( $ch );
 //sleep(1);
-usleep( 250 * 1000 );
+sleep(2);
                 }
                 
                 
