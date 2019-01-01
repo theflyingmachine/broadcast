@@ -119,7 +119,8 @@ class BroadcastController extends Controller
 		'Content-type: text/html' . "\r\n" .
         'X-Mailer: PHP/' . phpversion();
        
-		mail($toemail,$sub,$msg,$headers);
+        mail($toemail,$sub,$msg,$headers);
+        usleep( 250 * 1000 );
                 }
                 
                 
