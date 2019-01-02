@@ -293,8 +293,7 @@ $response = curl_exec( $ch );
 
             $request->session()->put('progress',false);
                     
-                    return "Done";    
-                    // return view('pages.broadcastlaunchpad')->with('allbroadcasts',$users);
+                    return "Done";
                     }else
                     return redirect('login'); 
         }
