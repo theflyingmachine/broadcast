@@ -113,7 +113,7 @@ class BroadcastController extends Controller
                 // $broadcast->content = "It saew";
                 $broadcast->content = $templatefilename;
                 $broadcast->save();
-                sleep(2);
+               // sleep(2);
             //Shoot Email
 		$headers = "From: Eric Abraham <cyberboy.inc@gmail.com>" . "\r\n" .
 		'Reply-To: ericabraham.ea@gmail.com' . "\r\n" .
@@ -121,7 +121,7 @@ class BroadcastController extends Controller
         'X-Mailer: PHP/' . phpversion();
        
         mail($toemail,$sub,$msg,$headers);
-        sleep(2);
+        //sleep(1);
                 }
                 
                 
@@ -269,8 +269,7 @@ class BroadcastController extends Controller
                 $broadcast->content = $msg;
                 $broadcast->save();
                 //sleep(1);
-                sleep(2);
-            //Shoot SMS
+               //Shoot SMS
         
             $url = 'https://cyberboy.in/sms/smsapi.php';
 $myvars = 'apikey=9b6c17e81969d43e3a7c8106f5f7da7b&mobile=' . $tomobile. '&message=' . $msg;
@@ -283,8 +282,6 @@ curl_setopt( $ch, CURLOPT_HEADER, 0);
 curl_setopt( $ch, CURLOPT_RETURNTRANSFER, 1);
 
 $response = curl_exec( $ch );
-//sleep(1);
-sleep(2);
                 }
                 
                 
