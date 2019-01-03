@@ -17,6 +17,11 @@ Route::post('/', 'PagesController@index');
 Route::post('/index', 'PagesController@index');
 
 
+Route::get('/viewall', 'PagesController@viewall');
+Route::get('/deletedataapi/{token}', 'PagesController@deletedataapi');
+Route::post('/updatedataapi', 'PagesController@updatedataapi');
+Route::post('/adddataapi', 'PagesController@adddataapi');
+
 Route::get('/about', 'PagesController@about');
 Route::get('/newbroadcast', 'PagesController@newbroadcast');
 Route::get('/smsnewbroadcast', 'PagesController@smsbroadcast');

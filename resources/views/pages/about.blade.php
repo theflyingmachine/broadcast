@@ -13,7 +13,7 @@
 <br>
 <br>
 <br>
-Release Version 1.5 - 02 Jan 19
+Release Version 1.6 - 05 Jan 19
 
 </p></h3>
 

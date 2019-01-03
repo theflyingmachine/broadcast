@@ -1,43 +1,31 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-        <a class="navbar-brand" href="/">Broadcast</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-  
-        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-                    <a class="nav-link" href="/newbroadcast">Email Broadcast <span class="sr-only">(current)</span></a>
-                  </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <li class="nav-item">
-                    <a class="nav-link" href="/smsnewbroadcast">SMS Broadcast <span class="sr-only">(current)</span></a>
-                  </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <li class="nav-item">
-              <a class="nav-link" href="/about">About <span class="sr-only">(current)</span></a>
-            </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            {{-- <li class="nav-item">
-              <a class="nav-link disabled" href="#">Disabled</a>
-            </li> --}}
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Broadcast</a>
+    </div>
+    <ul class="nav">
+      <li class="active"><a href="/">Home</a></li>
+      
+      <li><a href="/newbroadcast">Email Broadcast</a></li>
 
+      <li><a href="/smsnewbroadcast">SMS Broadcast</a></li>
 
-            {{-- <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown01">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
-              </div>
-            </li> --}}
-          
-          {{-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form> --}}
-          <li { float:right; } class="nav-item">
-              <a class="nav-link" href="/logout">Logout <span class="sr-only">(current)</span></a>
-            </li></ul>
-        </div>
-      </nav>
+      <li><a href="/viewall">Members</a></li>
+      
+      {{-- <li class="dropdown"><a data-toggle="dropdown" href="#">Members <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="/viewall">View All</a></li>
+          <li><a href="#">Add New</a></li>
+        </ul>
+      </li> --}}
+
+      <li><a href="/about">About </a></li>
+      
+    </ul>
+
+    <ul class="nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      </ul>
+
+  </div>
+</nav>

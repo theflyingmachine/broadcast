@@ -48,6 +48,87 @@ class PagesController extends Controller
     }
 
 
+    public function viewall(Request $request){
+        
+        if($request->session()->get('login')){
+            $allmembers = Member::all();
+            //return $allmembers;
+            return view('pages.viewalltable')->with('allmembers',$allmembers);;
+            }else
+            return redirect('login');  
+        }
+
+
+
+        public function deletedataapi(Request $request, $token){
+            if($request->session()->get('login')){
+            
+            Member::where('id', '=', $token)->delete();
+            $request->session()->flash('message', ' User is deleted successfully.');
+
+            $allmembers = Member::all();
+            //return $allmembers;
+            return view('pages.viewalltable')->with('allmembers',$allmembers);;
+            }else
+            return redirect('login');  
+        }
+
+        public function adddataapi(Request $request){
+            if($request->session()->get('login')){
+                $name = $request->input('name');
+                $gender = $request->input('gender');
+                $email = $request->input('email');
+                $contact = $request->input('contact');
+
+                $member = new Member;
+                $member->name = $name;
+                $member->gender = $gender;
+                $member->email = $email;
+                $member->mobile = $contact;
+                $member->created_at = now();
+                $member->updated_at = now();
+                if ($member->save())
+            $request->session()->flash('message', ' Member is Added successfully.');
+                else
+            $request->session()->flash('message', ' Member  failed to Add.');
+
+            $allmembers = Member::all();
+            //return $allmembers;
+            return view('pages.viewalltable')->with('allmembers',$allmembers);;
+            }else
+            return redirect('login');  
+        }
+
+        
+        public function updatedataapi(Request $request){
+            if($request->session()->get('login')){
+                $id = $request->input('id');
+                $name = $request->input('name');
+                $email = $request->input('email');
+                $contact = $request->input('contact');
+
+                $response= Member::where('id', $id)->firstOrFail();
+            
+                //Set user object attributes
+                $response->name = $name;
+                $response->email = $email;
+                $response->mobile = $contact;
+                $response->updated_at = now();
+
+                // This will will update your the row in ur db.
+               if($response->save())
+               $request->session()->flash('message', ' User is data updated successfully.');
+               else
+               $request->session()->flash('message', ' User is data failed to update.');
+               
+                
+            $allmembers = Member::all();
+            //return $allmembers;
+            return view('pages.viewalltable')->with('allmembers',$allmembers);;
+            }else
+            return redirect('login');  
+        }
+
 
     public function login(Request $request){
         $mailcount = 1;
