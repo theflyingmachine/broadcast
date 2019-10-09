@@ -13,7 +13,8 @@ class ResponseController extends Controller
     public function checktoken($token){
     $status = Broadcast::where('token', '=', $token)->first();
     //check is token is correct
-    if(count($status) == 1){
+    if(count((array)$status) == 1){
+        // if(count($status) == 1){
         // echo $token;
         // $token->session()->put('token',$token);
         Session::put('token', $token);

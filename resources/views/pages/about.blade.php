@@ -10,7 +10,10 @@
 <br>Mobile Number - [myNumber]
 <br>Token - [myToken]
 <br>
-<br>
+<br>Quick responce
+<br>https://broadcast.cyberboy.in/response/[myToken]/delete
+<br>https://broadcast.cyberboy.in/response/[myToken]/ok
+<br>https://broadcast.cyberboy.in/response/[myToken]
 <br>
 <br>
 Release Version 1.6 - 05 Jan 19
