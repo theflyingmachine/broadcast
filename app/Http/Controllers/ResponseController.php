@@ -12,8 +12,10 @@ class ResponseController extends Controller
     //
     public function checktoken($token){
     $status = Broadcast::where('token', '=', $token)->first();
+    echo $status;
+    exit;
     //check is token is correct
-    if(count((array)$status) == 1){
+    if(count((array)$status) >= 1){
         // if(count($status) == 1){
         // echo $token;
         // $token->session()->put('token',$token);
@@ -38,7 +40,7 @@ class ResponseController extends Controller
         $status = Broadcast::where('token', '=', $token)->first();
         //check is token is correct
         // return $status->status;
-        if(count($status) == 1){
+        if(count((array)$status) >= 1){
             // return $status->token;
              // $token->session()->put('token',$token);
             // Session::put('token', $token);
