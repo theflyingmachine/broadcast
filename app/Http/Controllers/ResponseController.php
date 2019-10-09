@@ -12,7 +12,11 @@ class ResponseController extends Controller
     //
     public function checktoken($token){
     $status = Broadcast::where('token', '=', $token)->first();
-    echo $status;
+
+    if ($status == null)
+    echo "its null";
+    if ($status == "")
+    echo "its blank";
     exit;
     //check is token is correct
     if(count((array)$status) >= 1){
