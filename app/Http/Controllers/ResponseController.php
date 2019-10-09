@@ -12,14 +12,8 @@ class ResponseController extends Controller
     //
     public function checktoken($token){
     $status = Broadcast::where('token', '=', $token)->first();
-
-    if ($status == null)
-    echo "its null";
-    if ($status == "")
-    echo "its blank";
-    exit;
     //check is token is correct
-    if(count((array)$status) >= 1){
+    if($status != null){
         // if(count($status) == 1){
         // echo $token;
         // $token->session()->put('token',$token);
@@ -44,7 +38,7 @@ class ResponseController extends Controller
         $status = Broadcast::where('token', '=', $token)->first();
         //check is token is correct
         // return $status->status;
-        if(count((array)$status) >= 1){
+        if($status != null){
             // return $status->token;
              // $token->session()->put('token',$token);
             // Session::put('token', $token);
