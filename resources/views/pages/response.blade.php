@@ -14,7 +14,6 @@ body, html {
 </style></head>
 <body>
 @if( ! empty($token['token']))
-@if(count($token) == 1)
 
         @if($token->status=='pending')
         {{-- Status is pending - Accept responce --}}
@@ -26,7 +25,6 @@ body, html {
         {{-- Status is not pending, Show thankyou --}}
         @include('inc.okresponse')
 
-    @endif 
 @endif  
 @else
 {{-- Invalid Token --}}
